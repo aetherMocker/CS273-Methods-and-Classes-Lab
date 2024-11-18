@@ -15,10 +15,18 @@ public class Run5 extends Run4 {
         new Run5().setVisible(true);
     }
     
+    /* Run5 constructor */
     public Run5() {
         super();
     }
 
+    /** addMessageFields()
+     * 
+     * adds the text fields that display its corresponding 
+     * messages like minRoll and maxRoll, etc. to the screen
+     * 
+     * returns void
+     */
     @Override
     protected void addMessageFields(Container c) {
         super.addMessageFields(c);
@@ -44,19 +52,42 @@ public class Run5 extends Run4 {
         // super.display(g);
         // myDie2.paint(g); // paint the second die
     // }
-
+    
+    /** updateMinMax()
+     * 
+     * calculates the minRoll and maxRoll after every roll
+     * and updates the local variables that save those values
+     * 
+     * returns void
+     */
     private void updateMinMax() {
         int sum = myDie.getCurrentValue() + myDie2.getCurrentValue();
         maxRoll = Math.max(maxRoll, sum);
         minRoll = Math.min(minRoll, sum);
     }
 
+    /** processRollButton()
+     * 
+     * handles the roll button action and calls the 
+     * appropriate method to execute it
+     * 
+     * returns void
+     */
     @Override
     protected void processRollButton() {
         super.processRollButton();
         updateMinMax();
     }
 
+    /** printMessages()
+     * 
+     * prints to the screen statistics about the minimum roll vs
+     * the maximum roll that has been generated as a result of the
+     * random rolls 
+     * also prints when doubles are rolled
+     * 
+     * returns void
+     */
     @Override
     protected void printMessages() {
         super.printMessages();
@@ -72,6 +103,13 @@ public class Run5 extends Run4 {
         }
     }
     
+    /** addDice()
+     * 
+     * initializes the dice to the screen, and sets the minRoll and 
+     * maxRoll values
+     * 
+     * returns void
+     */
     @Override
     protected void addDice() {
         super.addDice();
